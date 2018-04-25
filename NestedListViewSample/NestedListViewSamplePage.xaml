@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NestedListViewSample"
+             x:Class="NestedListViewSample.NestedListViewSamplePage"
+             Title="Nested ListView Sample">
+    <ListView x:Name="ItemDataList" 
+          HasUnevenRows="True" 
+          SeparatorColor="Transparent"
+          IsGroupingEnabled="True">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+                        <Label FontSize="20" FontAttributes="Bold"
+                               Text="{Binding Key.FirstItemName}"/>
+                        <Image Source="drawable/test_img.png"
+                               HorizontalOptions="Start"
+                               HeightRequest="50"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding SecondItemName}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
